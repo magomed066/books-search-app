@@ -25,7 +25,7 @@ export const LoadMoreButton = () => {
 	const loadMoreBtn = loadingMore ? (
 		loadingMore
 	) : !booksEnded ? (
-		<Button className="col-2 mt-3" variant="light" onClick={loadMore}>
+		<Button className="col-4 col-md-2 mt-3" variant="light" onClick={loadMore}>
 			Load more...
 		</Button>
 	) : null
