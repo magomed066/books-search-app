@@ -15,14 +15,14 @@ import {
 } from '@/shared/api/books'
 
 export const SearchForm = () => {
-	const { orderBy, category } = useAppSelector(getBooksSelector)
+	const { orderBy, category, searchValue } = useAppSelector(getBooksSelector)
 
-	const [searchQuery, setSearchQuery] = useState<string>('')
+	const [searchName, setSearchName] = useState<string>('')
 	const [emptyField, setEmptyField] = useState<boolean>(false)
 	const dispatch = useAppDispatch()
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setSearchQuery(e.target.value)
+		setSearchName(e.target.value)
 	}
 
 	const handleChangeSorting = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -35,13 +35,13 @@ export const SearchForm = () => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault()
 
-		if (!searchQuery.length) {
+		if (!searchName.length) {
 			setEmptyField(true)
 			return
 		}
 
 		setEmptyField(false)
-		dispatch(getBooksByName({ name: searchQuery, category, orderBy }))
+		dispatch(getBooksByName({ name: searchName, category, orderBy }))
 	}
 
 	return (
@@ -50,8 +50,8 @@ export const SearchForm = () => {
 				<Form.Control
 					type="text"
 					name="name"
+					defaultValue={searchValue}
 					placeholder="Enter name"
-					value={searchQuery}
 					onChange={handleChange}
 					isInvalid={emptyField}
 				/>
