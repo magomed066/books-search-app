@@ -5,6 +5,7 @@ import { useEffect, useMemo } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import parseHtml from 'html-react-parser'
 import styles from './index.module.scss'
 
 const Details = () => {
@@ -53,7 +54,7 @@ const Details = () => {
 						/>
 					</div>
 				</Col>
-				<Col md={8} className="mw-sm-3">
+				<Col md={7} className="mw-sm-3">
 					<div className={styles['info']}>
 						<p className={styles['info-title__sup']}>
 							{searchCategory}
@@ -65,7 +66,7 @@ const Details = () => {
 							{bookDetails?.volumeInfo?.authors?.map((item) => item).join(', ')}
 						</p>
 
-						<p>{bookDetails?.volumeInfo?.description}</p>
+						<p>{parseHtml(bookDetails?.volumeInfo?.description || '')}</p>
 					</div>
 				</Col>
 			</Row>
