@@ -36,6 +36,8 @@ export interface IBook {
 		canonicalVolumeLink: string
 		contentVersion: string
 		description: string
+		authors?: string[]
+		categories?: string[]
 		imageLinks: {
 			smallThumbnail: string
 			thumbnail: string

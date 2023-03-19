@@ -8,7 +8,7 @@ export const Routing = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Main />} />
-			<Route path="/about" element={<Details />} />
+			<Route path="/book/:id" element={<Details />} />
 		</Routes>
 	)
 }

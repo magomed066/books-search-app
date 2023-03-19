@@ -1,0 +1,22 @@
+.loader {
+    width: 100wv;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details {
+
+    .img-wrap {
+        background: #efefef60;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        height: 300px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+}
