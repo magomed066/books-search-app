@@ -17,7 +17,7 @@ import {
 export const SearchForm = () => {
 	const { orderBy, category, searchValue } = useAppSelector(getBooksSelector)
 
-	const [searchName, setSearchName] = useState<string>('')
+	const [searchName, setSearchName] = useState<string>(searchValue)
 	const [emptyField, setEmptyField] = useState<boolean>(false)
 	const dispatch = useAppDispatch()
 
@@ -51,6 +51,7 @@ export const SearchForm = () => {
 					type="text"
 					name="name"
 					defaultValue={searchValue}
+					value={searchName}
 					placeholder="Enter name"
 					onChange={handleChange}
 					isInvalid={emptyField}
